@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Mastering ChatGPT Blog Creation
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/blogs/blogstyle.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+{% endblock %}
+
+{% block content %}
+  <div class="home-page-wrapper">
+    <!-- Header Section -->
+    <header class="header">
+      <!-- Logo -->
+      <div class="header-logo">
+        <img src="{% static 'img/pages/LogoColoredwhite1.png' %}" alt="Brancherz Logo" />
+      </div>
+
+      <!-- Mobile Navigation Toggle -->
+      <div class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar" id="myNavbar">
+        <a href="{% url 'home' %}" class="nav-item">Home</a>
+        <a href="{% url 'services' %}" class="nav-item">Services</a>
+        <a href="{% url 'blogs' %}" class="nav-item active">Blogs</a>
+        <a href="{% url 'about' %}" class="nav-item">About</a>
+        <a href="{% url 'contact' %}" class="nav-item">Contact Us</a>
+      </nav>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}" class="login-button" id="loginButton" style="text-decoration: none;"><span>Log Out</span></a>
+      {% else %}
+        <a href="{% url 'login' %}" class="login-button" id="loginButton" style="text-decoration: none;">
+          <span>Log In</span>
+          <img src="{% static 'img/pages/Frame.png' %}" alt="Login Icon" class="login-icon" />
+        </a>
+      {% endif %}
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+      <div class="mobile-nav-header">
+        <img src="{% static 'img/pages/Logo White 4.png' %}" alt="Mobile Logo" class="mobile-nav-logo" />
+      </div>
+      <a href="{% url 'home' %}" class="mobile-nav-item">Home</a>
+      <a href="{% url 'services' %}" class="mobile-nav-item">Services</a>
+      <a href="{% url 'blogs' %}" class="mobile-nav-item active">Blogs</a>
+      <a href="{% url 'about' %}" class="mobile-nav-item">About</a>
+      <a href="{% url 'contact' %}" class="mobile-nav-item">Contact Us</a>
+      <div class="closebtn" id="closeMobileNav">&times;</div>
+    </div>
+
+    <!-- Blog Content -->
+    <div class="blog-content">
+      <div class="parent">
+        <div class="div1">
+          <div class="overlay"></div>
+          <div class="title">
+            <div class="favorites-container" onclick="toggleFavorite()">
+              <i class="fa-solid fa-heart"></i>
+              <span class="text">Add to Favorites</span>
+            </div>
+            <h1>Mastering ChatGPT Blog Creation:<br /> Dos and Don'ts for SaaS Marketing Managers</h1>
+            <div class="desc">
+              <p>Oct 19 &middot; By Ahmed</p>
+            </div>
+          </div>
+        </div>
+        <div class="div2">
+          <div class="paragraph">
+            <h1 class="paragraph-title">Exploring Generative AI in Content Creation</h1>
+            <br />
+            <p class="paragraph-content">
+              Hello there! As a marketing manager in the SaaS industry, you might be looking for innovative ways to engage your audience. I bet generative AI has crossed your mind as an option for creating content. Well, let me share from my firsthand experience.
+              <br /><br />
+              Google encourages high-quality blogs regardless of whether they're <span style="color: #91CC1F;">written by humans or created using artificial intelligence</span> like ChatGPT. Here's what matters: producing original material with expertise and trustworthiness based on Google <span style="color: #91CC1F;">E-E-A-T principles</span>.
+              <br /><br />
+              This means focusing more on people-first writing rather than primarily employing AI tools to manipulate search rankings. There comes a time when many experienced professionals want to communicate their insights but get stuck due to limited writing skills – that’s where Generative AI can step in.
+              <br /><br />
+              So, together, we’re going explore how this technology could help us deliver valuable content without sounding robotic or defaulting into mere regurgitations of existing materials (spoiler alert – common pitfalls!). Hang tight - it’ll be a fun learning journey!
+              <br /><br />
+              Jumping headfirst into using AI, like ChatGPT, without a content strategy can lead to some unfortunate results. One common pitfall I've seen is people opting for quantity over quality - they churn out blogs, but each one feels robotic and soulless.
+            </p>
+          </div>
+        </div>
+        <div class="div3" style="background-color: #F89939;">
+          <div class="oval-bg"></div>
+          <div class="share-content">
+            <p class="share">Share with your community!</p>
+            <div class="share-icons">
+              <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="icon instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="div4">
+          <h2>In this article</h2>
+          <div class="article-content">
+            <p class="first-headline">Exploring Generative AI in Content Creation</p>
+            <p>Steering Clear of Common AI Writing Pitfalls</p>
+            <p>Understanding ChatGPT Capabilities - Define Your Style</p>
+            <p>Understand Your Readers</p>
+            <p>Creating Quality AI-powered Blogs that Stand Out</p>
+            <p>Conclusion: Embracing AI in Blog Creation</p>
+            <p>Afterword: The AI Behind This Article</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="related-articles">
+        <h1 class="related-articles-title">Related Articles</h1>
+        <div class="articles-cards">
+          <div class="card">
+            <div class="card-img-container">
+              <img class="card-img" src="{% static 'img/blogs/card.png' %}" />
+            </div>
+            <div class="card-content">
+              <div class="card-category">
+                <div class="circle"></div>
+                <span>Artificial Intelligence</span>
+              </div>
+              <h3 class="card-title">How to Write Articles with AI? Include Your Unique Perspective</h3>
+              <p class="card-desc">Oct 19 &middot; By Ahmed</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-container">
+              <img class="card-img" src="{% static 'img/blogs/card.png' %}" />
+            </div>
+            <div class="card-content">
+              <div class="card-category">
+                <div class="circle"></div>
+                <span>Artificial Intelligence</span>
+              </div>
+              <h3 class="card-title">How to Write Articles with AI? Include Your Unique Perspective</h3>
+              <p class="card-desc">Oct 19 &middot; By Ahmed</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-container">
+              <img class="card-img" src="{% static 'img/blogs/card.png' %}" />
+            </div>
+            <div class="card-content">
+              <div class="card-category">
+                <div class="circle"></div>
+                <span>Artificial Intelligence</span>
+              </div>
+              <h3 class="card-title">How to Write Articles with AI? Include Your Unique Perspective</h3>
+              <p class="card-desc">Oct 19 &middot; By Ahmed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-logo-container">
+      <img src="{% static 'img/pages/Logo Black 1.png' %}" alt="Brancherz Logo" class="footer-logo" />
+    </div>
+
+    <nav class="footer-nav">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'blogs' %}">Blogs</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+
+    <div class="social-media-icons-container">
+      <div class="social-media-icons">
+        <a href="https://www.linkedin.com/company/brancherz" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-details-group">
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-phone-alt"></i> +971 52147 1307 <br /> +20 3 4229558
+        </p>
+      </div>
+      <div class="location-info">
+        <p>
+          <i class="fas fa-map-marker-alt"></i> Dubai, UAE <br /> Alex, Egypt
+        </p>
+      </div>
+      <div class="email-info">
+        <p>
+          <i class="fas fa-envelope"></i> Business Inquiry: <br /> info@brancherz.com
+        </p>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    // Mobile Navigation Toggle
+    document.getElementById('mobileNavToggle').addEventListener('click', function () {
+      document.getElementById('mobileNavOverlay').style.width = '100%'
+    })
+    
+    document.getElementById('closeMobileNav').addEventListener('click', function () {
+      document.getElementById('mobileNavOverlay').style.width = '0'
+    })
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.header')
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled')
+      } else {
+        header.classList.remove('scrolled')
+      }
+    })
+    
+    function toggleFavorite() {
+      const container = document.querySelector('.favorites-container')
+      container.classList.toggle('clicked')
+    
+      const text = document.querySelector('.text')
+      if (container.classList.contains('clicked')) {
+        text.textContent = 'Added to Favorites'
+      } else {
+        text.textContent = 'Add to Favorites'
+      }
+    }
+  </script>
+{% endblock %}

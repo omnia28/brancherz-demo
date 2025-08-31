@@ -1,0 +1,952 @@
+/* ========== GENERAL STYLES ========== */
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* ========== GENERAL STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    color: #FFFFFF;
+    background-color: #0D0D0D;
+}
+
+/* ========== Services PAGE STYLES ========== */
+.services-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.header.scrolled {
+    background-color: rgba(13, 13, 13, 0.9);
+}
+
+.header-logo img {
+    width: 250px;
+    height: 80px;
+    opacity: 1;
+    top: 17px;
+    left: 65px;
+
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar .nav-item {
+    color: #7D7B7B;
+    font-family: 'Open Sans';
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    line-height: 100%;
+    padding: 5px 0;
+}
+
+.navbar .nav-item.active {
+    text-decoration: underline;
+    text-decoration-thickness: 0px;
+    font-family: 'Open Sans';
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover:not(.active) {
+    color: #99CA3C;
+    /* text-decoration: underline; */
+}
+
+.navbar .nav-item.active:hover {
+    transform: scale(0.9);
+}
+
+/* Mobile Navigation Elements */
+.mobile-nav-toggle,
+.mobile-login-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-nav-toggle {
+    order: -1;
+    margin-right: 15px;
+    /* Adjust as needed */
+}
+
+.mobile-login-icon {
+    order: 2;
+    margin-left: 15px;
+    /* Adjust as needed */
+}
+
+/* Login Button */
+.login-button {
+    background-color: #0D0D0D;
+    border: 1px solid #99CA3C;
+    color: #91CC1F;
+    font-family: 'Open Sans';
+    padding: 10px 65px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.login-button .login-icon {
+    height: 30px;
+    width: 25px;
+    transition: opacity 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: white;
+    color: #99CA3C;
+}
+
+.login-button:hover .login-icon {
+    opacity: 0;
+}
+
+.login-button:hover::after {
+    content: "→";
+    font-size: 18px;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: rgba(13, 13, 13, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.mobile-nav-logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.closebtn {
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-nav-item {
+    padding: 12.5px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: #7D7B7B;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.mobile-nav-item:hover {
+    color: #99CA3C;
+}
+
+.mobile-nav-item.active {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* ========== BODY CONTENT STYLES ========== */
+.services-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    flex-grow: 1;
+    /* Allow content to take available space */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 90px);
+    /* Adjust based on header height */
+    justify-content: center;
+    /* Center content vertically */
+}
+
+.services-page-title {
+    font-family: 'Changa', sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+    max-width: 542px;
+    height: auto;
+    /* Let height adjust naturally */
+    width: 100%;
+    /* Ensure responsiveness */
+}
+
+/* Horizontal Scroll Container for Images */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent items from wrapping */
+    padding: 20px 0;
+    /* Add vertical padding */
+    gap: 30px;
+    /* Space between cards */
+    width: 100%;
+    /* Take full width */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+    position: relative;
+    /* For positioning scroll indicator */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Service Card Styles */
+.service-card {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 440px;
+    background-color: #0D0D0D;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 8px #0D0D0D;
+    transition: transform 0.3s ease-in-out, z-index 0.1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Card Inner for 3D flip */
+.service-card .card-inner {
+    width: 100%;
+    height: 100%;
+    /* Adjust height for service name text */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.service-card .card-front,
+.service-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.service-card .card-back {
+    transform: rotateY(180deg);
+}
+
+/* Image specific styles within card-front/back */
+.service-card .card-front img,
+.service-card .card-back img {
+    width: 100%;
+    height: 100%;
+    /* Ensures images fill the card face without overflow */
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+/* Control visibility of specific images */
+.service-card .mobile-flip-img,
+.service-card .desktop-flip-img {
+    display: none;
+}
+
+.service-card .original-img {
+    display: block;
+}
+
+
+/* --- Desktop Hover: Make card bigger and flip to desktop-flip-img --- */
+/* This section remains largely the same for the hover effect */
+@media (min-width: 769px) {
+    .service-card.flipped {
+        /* transform: scale(1.1); */
+        z-index: 10;
+        overflow: visible;
+        width: 616px;
+        /* Maintain the hover size */
+        /* height: 473px; */
+        border-radius: 15px;
+    }
+
+    .service-card.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Image visibility on desktop hover (still active) */
+    .service-card.flipped .original-img {
+        display: none;
+    }
+
+    .service-card .desktop-flip-img {
+        display: block;
+    }
+
+    .service-card.flipped .mobile-flip-img {
+        display: none;
+    }
+}
+
+/* --- Mobile/Tablet & Desktop Click: Flip the card (same size for mobile/tablet, scaled for desktop) --- */
+/* This rule applies to both desktop (when clicked) and mobile/tablet (when clicked) */
+.service-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Make flip icon visible by default for all screen sizes */
+/* It will only be positioned and styled at the card level */
+.service-card .flip-icon {
+    display: flex;
+    /* Make it visible for click on all devices */
+}
+
+@media (max-width: 768px) {
+
+    /* Ensure cards do not scale on mobile/tablet */
+    .service-card {
+        transform: none !important;
+        z-index: auto !important;
+        overflow: hidden;
+        width: calc(100vw - 60px);
+        max-width: 346px;
+        height: auto;
+        aspect-ratio: 346 / 473;
+    }
+}
+
+
+/* --- Image Visibility Control for Flipped State (All Devices) --- */
+/* Default state for .service-card (not flipped) */
+.service-card .original-img {
+    display: block;
+    /* Original image is visible by default */
+}
+
+.service-card .mobile-flip-img,
+.service-card .desktop-flip-img {
+    display: none;
+    /* Flip images are hidden by default */
+}
+
+/* State when .service-card has the 'flipped' class */
+.service-card.flipped .original-img {
+    display: none;
+    /* Hide original when flipped */
+}
+
+/* Show desktop flip image on desktop when flipped, or on desktop hover */
+.service-card.flipped .desktop-flip-img {
+    display: block;
+}
+
+/* Show mobile flip image on mobile/tablet when flipped */
+@media (max-width: 768px) {
+    .service-card.flipped .desktop-flip-img {
+        display: none;
+        /* Ensure desktop flip is hidden on mobile */
+    }
+
+    .service-card.flipped .mobile-flip-img {
+        display: block;
+        /* Show mobile flip image on mobile when flipped */
+    }
+}
+
+
+/* --- Existing Styles (keep these as they are) --- */
+.service-card .flip-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    /* Kept display flex here */
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Scroll Indicator Bar */
+.scroll-title {
+    font-family: sans-serif, Arial;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 16px;
+    line-height: 35px;
+    letter-spacing: 5%;
+    text-transform: uppercase;
+    color: #D6D6D6;
+}
+
+.scroll-indicator-container {
+    width: 80%;
+    max-width: 600px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.scroll-indicator-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #99CA3C;
+    border-radius: 4px;
+    transition: width 0.1s ease-out;
+}
+
+.scroll-percentage {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+}
+
+
+/* ========== RESPONSIVE STYLES ========== */
+@media screen and (max-width: 768px) {
+
+    .navbar,
+    .login-button {
+        display: none;
+    }
+
+    .mobile-services-title,
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    /* .mobile-login-icon {
+        width: 105;
+        height: 29;
+        opacity: 1;
+        top: auto;
+       right: auto;
+        font-family:Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        margin-right: auto;
+        position: static;
+    } */
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .services-page-title {
+        font-size: 64px;
+        margin-bottom: 30px;
+    }
+
+    /* Ensure card images are not affected by desktop hover rules on mobile/tablet */
+    .service-card .card-front,
+    .service-card .card-back {
+        opacity: 1;
+    }
+
+    .services-main-content {
+        /* padding-top: 0px; */
+        /* margin-bottom: 10px; */
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 10px 3%;
+    }
+
+    .header-logo img {
+        max-width: 100px;
+    }
+
+    .mobile-services-title {
+        font-size: 1.5em;
+    }
+
+    .mobile-login-icon,
+    .hamburger-icon {
+        font-size: 1.5em;
+    }
+
+    .mobile-nav-overlay a {
+        font-size: 20px;
+    }
+
+    .mobile-nav-overlay .closebtn {
+        font-size: 45px;
+    }
+
+    .services-page-title {
+        font-size: 48px;
+    }
+
+    .service-card {
+        width: calc(100vw - 40px);
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+
+    .service-card .flip-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .service-card .service-name {
+        font-size: 1em;
+    }
+}
+
+
+.footer {
+    background-color: #91CC1F;
+    color: #0D0D0D;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    /* Ensure footer takes full width */
+    max-width: 100%;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    /* Hide potential horizontal scrollbar */
+
+    /* --- Desktop/Laptop Layout (Default Grid) --- */
+    display: grid;
+    /* Define 3 columns for the top row (logo, nav, social)
+       and then span the bottom row across these 3 columns. */
+    grid-template-columns: 1fr 2fr 1fr;
+    /* Adjust column widths as needed */
+    grid-template-rows: auto auto;
+    /* Two rows, auto height */
+    grid-template-areas:
+        "logo-area nav-area social-area"
+        "contact-group-area contact-group-area contact-group-area";
+    /* Spans across all 3 columns */
+
+    /* Align items within their grid areas */
+    align-items: center;
+    /* Vertically center items in their rows */
+    justify-items: center;
+    /* Horizontally center items in their columns */
+    gap: 30px 20px;
+    /* Row gap, Column gap */
+
+}
+
+/* .footer-top-border {
+    border-top: 1.5px solid #ffffff;
+    width: 89vw;
+    margin: 0 auto;
+} */
+
+/* --- Assign Grid Areas to HTML Elements --- */
+.footer-logo-container {
+    grid-area: logo-area;
+    display: flex;
+    /* Use flex to center the logo image */
+    justify-content: center;
+    align-items: center;
+}
+
+/* .footer-top-border {
+    border-top: 1.5px solid #ffffff;
+    width: 89vw;
+    margin: 0 auto;
+} */
+
+.footer-nav {
+    grid-area: nav-area;
+    display: flex;
+    /* Use flex for nav links */
+    justify-content: center;
+    /* Center nav links horizontally */
+    gap: 25px;
+    /* Space between nav links */
+}
+
+.social-media-icons-container {
+    grid-area: social-area;
+    display: flex;
+    /* Use flex to center social icons */
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-details-group {
+    grid-area: contact-group-area;
+    display: flex;
+    /* Use flex to arrange phone, location, email horizontally */
+    justify-content: space-between;
+    /* Distribute space evenly */
+    align-items: center;
+    /* Align items to the top */
+    flex-wrap: wrap;
+    /* Allow items to wrap if screen is too narrow */
+    width: 100%;
+    /* Take full width of its grid area */
+    /* max-width: 800px; */
+    /* Constrain width of this group for better readability */
+    margin: 0 auto;
+    /* Center the group if it's narrower than its grid area */
+    /* padding-top: 20px; */
+    /* Space between top row and this row */
+}
+
+/* --- Individual Element Styling --- */
+.footer-logo {
+    max-width: 180px;
+    /* Adjust logo size for desktop */
+    height: auto;
+}
+
+.footer-nav a {
+    font-family: 'Open Sans';
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: white;
+}
+
+/* Social Media Icons (from previous code) */
+.social-media-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media-icons a {
+    width: 38px;
+    height: 38px;
+    /* background: rgba(255, 255, 255, 0.1); */
+    border: 1px solid black;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* .social-media-icons a img {
+    height: 20px;
+    width: auto;
+} */
+
+.social-media-icons a:hover {
+    background: #91CC1F;
+    border-color: white;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* .social-media-icons a:hover img {
+    filter: brightness(0) invert(1);
+} */
+
+/* Contact Info (phone, location, email) */
+.contact-info,
+.location-info,
+.email-info {
+    flex: 1;
+    /* Allow these items to grow/shrink within contact-details-group */
+    min-width: 200px;
+    /* Minimum width before wrapping */
+    padding: 10px;
+    /* Padding around each contact block */
+    box-sizing: border-box;
+    text-align: center;
+    /* Center text within each block */
+}
+
+.contact-info p,
+.location-info p,
+.email-info p {
+    font-family: 'Open Sans';
+    display: flex;
+    flex-direction: row;
+    /* Stack icon and text vertically */
+    align-items: center;
+    justify-content: center;
+    /* Center icon and text horizontally */
+    gap: 5px;
+    /* Space between icon and text */
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+}
+
+/* Font Awesome Icon Styling  */
+.contact-info .fas,
+.location-info .fas,
+.email-info .fas {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    color: #91CC1F;
+    font-size: 18px;
+    margin-bottom: 5px;
+    /* Space between icon and text below it */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-info .fas:hover,
+.location-info .fas:hover,
+.email-info .fas:hover {
+    background-color: #91CC1F;
+    color: #171717;
+}
+
+.contact-info p {
+    margin-left: -100px;
+}
+
+.email-info p {
+    margin-right: -100px;
+}
+
+
+
+/* --- Responsive Adjustments (Tablet & Mobile) --- */
+
+@media (max-width: 768px) {
+
+    /* Adjust breakpoint as needed for tablet/mobile */
+    .footer {
+        grid-template-columns: 1fr;
+        /* Single column layout for mobile/tablet */
+        grid-template-rows: auto auto auto auto;
+        /* Four rows */
+        grid-template-areas:
+            "social-area"
+            "nav-area"
+            "contact-group-area"
+            "logo-area";
+        /* Reordered as per your request */
+
+        justify-items: center;
+        /* Center everything horizontally in the single column */
+        gap: 15px 0;
+        /* Adjust gaps for vertical stacking */
+        padding: 0px 15px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .social-media-icons-container {
+        margin-top: 10px;
+    }
+
+    /* Ensure all main sections are centered */
+    .footer-logo-container,
+    .footer-nav,
+    .social-media-icons-container {
+        width: 100%;
+        /* Take full width of the single column */
+        text-align: center;
+        /* Center text content */
+        justify-content: center;
+        /* Center flex items if they are flex containers */
+        align-items: center;
+        /* Center flex items if they are flex containers */
+    }
+
+    /* Specific adjustments for elements within their new mobile layout */
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Stack nav links vertically */
+        gap: 18px;
+        /* Space between stacked nav links */
+    }
+
+    .footer-nav a {
+        font-size: 14px;
+        min-width: 50px;
+        text-align: center;
+        /* Slightly larger nav links for mobile */
+    }
+
+    .social-media-icons {
+        justify-content: center;
+        /* Ensure social icons group is centered */
+    }
+
+    .contact-details-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        /* Stack phone, location, email vertically */
+        gap: 10px;
+        /* Space between stacked contact blocks */
+        border-top: none;
+        /* Remove separator line on mobile if desired */
+        padding-top: 0;
+    }
+
+    .contact-info,
+    .location-info,
+    .email-info {
+        flex: 1;
+        /* أو width: auto; */
+        min-width: 0;
+        /* مهم عشان يمنع overflow */
+        text-align: center;
+    }
+
+    .footer-logo {
+        max-width: 150px;
+        /* Adjust logo size for mobile */
+    }
+
+    /* Further reduce font and icon sizes for very small screens if needed */
+    .contact-info p,
+    .location-info p,
+    .email-info p {
+        font-size: 12px;
+        flex-direction: column;
+        white-space: nowrap;
+    }
+
+    .contact-info .fas,
+    .location-info .fas,
+    .email-info .fas,
+    .social-media-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .contact-info p {
+        margin-left: 0;
+    }
+
+    .email-info p {
+        margin-right: 0;
+    }
+
+    .social-media-icons a img {
+        height: 16px;
+    }
+
+    .footer-top-border {
+        display: none;
+    }
+}
+
+@media (max-width: 390px) {
+    .footer-nav a {
+        font-size: 14px;
+        min-width: 50px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* .footer-nav {
+        gap: 20px 5px;
+    } */
+}

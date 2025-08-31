@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Enter Code - Branchez{% endblock title %}
+
+{% block content %}
+<div class="background-image-container">
+    <div class="form-container">
+        <h1>Enter verification code</h1>
+        <p class="verification-code-prompt">
+            We have sent a verification code to your email address. Please enter your code down below 👇
+        </p>
+        <form id="codeVerificationForm" method="POST" action="{% url 'verify_code' %}">
+            {% csrf_token %}
+
+            <!-- Inline Error Message -->
+            <div id="codeErrorMessage" class="error-message">
+                {% if form.errors %}
+                    {{ form.errors }}
+                {% endif %}
+            </div>
+
+            <div class="code-input-group">
+                <input type="text" name="code1" class="code-input" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                <input type="text" name="code2" class="code-input" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                <input type="text" name="code3" class="code-input" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                <input type="text" name="code4" class="code-input" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                <input type="text" name="code5" class="code-input" maxlength="1" inputmode="numeric" pattern="[0-9]">
+            </div>
+
+            <button type="submit" class="signup-button verify-button">
+                <i class="fas fa-check-circle button-icon"></i>
+                <span>Verify</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="messageModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" id="modalCloseBtn">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+{% endblock content %}

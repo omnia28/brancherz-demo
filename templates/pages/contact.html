@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Contact us
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/pages/contactstyle2.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="home-page-wrapper">
+    <header class="header">
+      <div class="header-logo">
+        <img src="{% static 'img/pages/LogoColoredwhite1.png' %}" alt="Branchez Logo" />
+      </div>
+
+      <div class="mobile-login-icon" id="mobileLoginIcon">
+        <p>Contact us</p>
+      </div>
+
+      <div class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="navbar" id="myNavbar">
+        <a href="{% url 'home' %}" class="nav-item">Home</a>
+        <a href="{% url 'services' %}" class="nav-item">Services</a>
+        <a href="#" class="nav-item">Blogs</a>
+        <a href="{% url 'about' %}" class="nav-item">About</a>
+        <a href="{% url 'contact' %}" class="nav-item active">Contact Us</a>
+      </nav>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}" class="login-button" id="loginButton" style="text-decoration: none;"><span>Log Out</span></a>
+      {% else %}
+        <a href="{% url 'login' %}" class="login-button" id="loginButton" style="text-decoration: none;">
+          <span>Log In</span>
+          <img src="{% static 'img/pages/Frame.png' %}" alt="Login Icon" class="login-icon" />
+        </a>
+      {% endif %}
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+      <div class="mobile-nav-header">
+        <img src="{% static 'img/pages/Logo White 4.png' %}" alt="Mobile Logo" class="mobile-nav-logo" />
+      </div>
+      <a href="{% url 'home' %}" class="mobile-nav-item">Home</a>
+      <a href="#" class="mobile-nav-item">Services</a>
+      <a href="#" class="mobile-nav-item">Blogs</a>
+      <a href="{% url 'about' %}" class="mobile-nav-item">About</a>
+      <a href="{% url 'contact' %}" class="mobile-nav-item active">Contact Us</a>
+      <div class="closebtn" id="closeMobileNav">&times;</div>
+    </div>
+
+    <div class="contact-page-wrapper">
+      <div class="contact-content">
+        <div class="contact-form-container">
+          <form id="contactForm">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="" required />
+              </div>
+              <div class="form-group phone">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" placeholder="+012 3456 789" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Write your message" required></textarea>
+            </div>
+
+            <div class="send-button-container">
+              <button type="submit" class="send-message-button">Send Message</button>
+            </div>
+          </form>
+          <div class="contact-details-group">
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-phone-alt"></i> +971 52147 1307 <br /> +20 3 4229558
+              </p>
+            </div>
+            <div class="location-info">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Dubai, UAE <br /> Alex, Egypt
+              </p>
+            </div>
+            <div class="email-info">
+              <p>
+                <i class="fas fa-envelope"></i> Business Inquiry: <br /> info@brancherz.com
+              </p>
+            </div>
+            <div class="social-media-icons-container">
+              <div class="social-media-icons">
+                <a href="https://www.linkedin.com/company/brancherz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="{% static 'img/pages/1.png' %}" /></a>
+                <a href="https://www.linkedin.com/company/brancherz" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="{% static 'img/pages/2.png' %}" /></a>
+                <a href="#" aria-label="Instagram"><img src="{% static 'img/pages/3.png' %}" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-image-container">
+          <div id="eagleimagecontainer">
+            <img id="eagleimage" src="{% static 'img/pages/ee.png' %}" alt="Contact Image Placeholder" />
+            <div class="gradient-click-overlay" id="gradientOverlay">
+              <div class="overlay-content" id="overlayContent">
+                <i class="fas fa-arrow-up scroll-up-icon arrow" id="scrollToFooter"></i>
+                <div class="text">Get in touch</div>
+              </div>
+            </div>
+            <div class="contact-footer" id="contactFooter">
+              <div class="footer-content">
+                <div class="footer-items-container">
+                  <div class="footer-item">
+                    <div class="footer-icon">
+                      <i class="fas fa-phone-alt" style="transform: scaleX(-1);"></i>
+                    </div>
+                    <p>+971 52147 1307</p>
+                    <p>+20 3 4229558</p>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <p>Dubai, UAE</p>
+                    <p>Alex, Egypt</p>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <p>Business Inquiry:</p>
+                    <p>info@brancherz.com</p>
+                  </div>
+                </div>
+                <div class="footer-social">
+                  <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/company/brancherz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/brancherz" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="messageModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="modalCloseBtn">&times;</span>
+        <p id="modalMessage"></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/pages/teamscript.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const gradientOverlay = document.getElementById('gradientOverlay')
+      const contactFooter = document.getElementById('contactFooter')
+      const overlayContent = document.getElementById('overlayContent')
+    
+      function toggleFooter() {
+        const isShown = contactFooter.classList.contains('show')
+        contactFooter.classList.toggle('show')
+        if (isShown) {
+          overlayContent.style.display = 'block'
+        } else {
+          overlayContent.style.display = 'none'
+        }
+      }
+    
+      if (gradientOverlay) {
+        gradientOverlay.addEventListener('click', toggleFooter)
+      }
+    
+      if (contactFooter) {
+        contactFooter.addEventListener('click', toggleFooter)
+      }
+    })
+  </script>
+{% endblock %}

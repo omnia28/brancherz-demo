@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Brancherz Services
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pages/servicesstyle.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="services-page-wrapper">
+    <!-- Header Section -->
+    <header class="header">
+      <!-- Logo -->
+      <div class="header-logo">
+        <img src="{% static 'img/pages/LogoColoredwhite1.png' %}" alt="Brancherz Logo" />
+      </div>
+
+      <!-- Mobile Login Icon -->
+      <div class="mobile-login-icon" id="mobileLoginIcon">
+        <p>Services</p>
+      </div>
+
+      <!-- Mobile Navigation Toggle -->
+      <div class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar" id="myNavbar">
+        <a href="{% url 'home' %}" class="nav-item">Home</a>
+        <a href="{% url 'services' %}" class="nav-item active">Services</a>
+        <a href="{% url 'blogs' %}" class="nav-item">Blogs</a>
+        <a href="{% url 'about' %}" class="nav-item">About</a>
+        <a href="{% url 'contact' %}" class="nav-item">Contact Us</a>
+      </nav>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}" class="login-button" id="loginButton" style="text-decoration: none;"><span>Log Out</span></a>
+      {% else %}
+        <a href="{% url 'login' %}" class="login-button" id="loginButton" style="text-decoration: none;">
+          <span>Log In</span>
+          <img src="{% static 'img/pages/Frame.png' %}" alt="Login Icon" class="login-icon" />
+        </a>
+      {% endif %}
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+      <div class="mobile-nav-header">
+        <img src="{% static 'img/pages/Logo White 4.png' %}" alt="Mobile Logo" class="mobile-nav-logo" />
+      </div>
+      <a href="{% url 'home' %}" class="mobile-nav-item">Home</a>
+      <a href="{% url 'services' %}" class="mobile-nav-item active">Services</a>
+      <a href="{% url 'blogs' %}" class="mobile-nav-item">Blogs</a> <!-- Assuming 'blogs' URL exists -->
+      <a href="{% url 'about' %}" class="mobile-nav-item">About</a>
+      <a href="{% url 'contact' %}" class="mobile-nav-item">Contact Us</a>
+      <div class="closebtn" id="closeMobileNav">&times;</div>
+    </div>
+
+    <!-- Main Content for Services Page -->
+    <main class="services-main-content">
+      <h1 class="services-page-title">Our Services</h1>
+
+      <div class="horizontal-scroll-container" id="horizontalScrollContainer">
+        <!-- Service Card 1: Brand Identity -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/brand-front.png' %}" alt="Brand Identity Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/brand-flipped-mobile.png' %}" alt="Brand Identity Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/brand-flipped.png' %}" alt="Brand Identity Service Details" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 2: Creative Design -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/creatives-front.png' %}" alt="Creative Design Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/creatives-flipped-mobile.png' %}" alt="Creative Design Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/creatives-flipped.png' %}" alt="Creative Design Service Details" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 3: 3D Design -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/3d-front.png' %}" alt="3D Design & Modeling Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/3d-flipped-mobile.png' %}" alt="3D Design & Modeling Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/3d-flipped.png' %}" alt="3D Design & Modeling Service Details" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 4: Digital Marketing -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/digital-front.png' %}" alt="Digital Marketing Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/digital-flipped-mobile.png' %}" alt="Digital Marketing Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/digital-flipped.png' %}" alt="Digital Marketing Service Details" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 5: Medical Marketing -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/medico-front.png' %}" alt="Medical Marketing Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/medico-flipped-mobile.png' %}" alt="Medical Marketing Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/medico-flipped.png' %}" alt="Medical Marketing Service Details" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 6: Business Strategy -->
+        <div class="service-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="original-img" src="{% static 'img/pages/business-front.png' %}" alt="Business Strategy Service" />
+              <i class="fas fa-sync-alt flip-icon"></i>
+            </div>
+            <div class="card-back">
+              <img class="mobile-flip-img" src="{% static 'img/pages/business-flipped-mobile.png' %}" alt="Business Strategy Service Details Mobile" />
+              <img class="desktop-flip-img" src="{% static 'img/pages/business-flipped.png' %}" alt="Business Strategy Service Details" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="scroll-title">SCROLL TO EXPLORE</h2>
+      <div class="scroll-indicator-container">
+        <div class="scroll-indicator-bar" id="scrollIndicatorBar"></div>
+        <span class="scroll-percentage" id="scrollPercentage">0%</span>
+      </div>
+    </main>
+
+
+    <footer class="footer">
+      <div class="footer-logo-container">
+        <img src="{% static 'img/pages/Logo Black 1.png' %}" alt="Brancherz Logo" class="footer-logo" />
+      </div>
+
+      <nav class="footer-nav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'services' %}">Services</a>
+        <a href="{% url 'blogs' %}">Blogs</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+      </nav>
+
+      <div class="social-media-icons-container">
+        <div class="social-media-icons">
+          <a href="https://www.linkedin.com/company/brancherz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/yourcompany" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/yourcompany" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-details-group">
+        <div class="contact-info">
+          <p><i class="fas fa-phone-alt"></i> +971 52147 1307 <br> +20 3 4229558 </p>
+        </div>
+        <div class="location-info">
+          <p><i class="fas fa-map-marker-alt"></i> Dubai, UAE <br> Alex, Egypt</p>
+        </div>
+        <div class="email-info">
+          <p><i class="fas fa-envelope"></i> Business Inquiry: <br> info@brancherz.com</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/pages/servicesscript.js' %}"></script>
+  <!-- If you need to pass the static URL prefix to your JS like in the home template -->
+  <!-- 
+  <script>
+    window.STATIC_URL = "{% static '' %}";
+  </script>
+   -->
+{% endblock %}
