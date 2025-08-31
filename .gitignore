@@ -1,7 +1,6 @@
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+
 
 # Django stuff
 db.sqlite3
