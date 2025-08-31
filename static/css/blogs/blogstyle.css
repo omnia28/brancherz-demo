@@ -72,6 +72,22 @@ body {
     color: #99CA3C;
 }
 
+.navbar .nav-item.active {
+    text-decoration: underline;
+    text-decoration-thickness: 0px;
+    font-family: 'Open Sans';
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover:not(.active) {
+    color: #99CA3C;
+    /* text-decoration: underline; */
+}
+
+.navbar .nav-item.active:hover {
+    transform: scale(0.9);
+}
+
 /* Mobile Navigation Elements */
 .mobile-nav-toggle,
 .mobile-login-icon {
@@ -174,6 +190,11 @@ body {
 
 .mobile-nav-item:hover {
     color: #99CA3C;
+}
+
+.mobile-nav-item.active {
+    color: #FFFFFF;
+    text-decoration: underline;
 }
 
 /* ========== MAIN CONTENT STYLES ========== */
